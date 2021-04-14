@@ -1,0 +1,12 @@
+[submodule "reviews-db"]
+	path = reviews-db
+	url = https://github.com/async-anonymous/reviews-db.git
+[submodule "product-overview-db"]
+	path = product-overview-db
+	url = https://github.com/async-anonymous/product-overview-db.git
+[submodule "FECClient"]
+	path = FECClient
+	url = https://github.com/async-anonymous/FECClient.git
+[submodule "qa-db"]
+	path = qa-db
+	url = https://github.com/async-anonymous/qa-db.git
