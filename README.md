@@ -1,4 +1,4 @@
-# SDC
+# System Design Capstone
 
 ## Overview
 - what these systems are for/do
@@ -10,13 +10,22 @@
 - explain how the individual repos/submodules work
 
 ## Product Overview
-- jimbo
+**System Design Engineer: Jim Burch**
+
+[Screenshot and/or gif]
+DESCRIPTION HERE
 
 ## Q&A
-- emma
+**System Design Engineer: Emma Knor**
+
+[Screenshot and/or gif]
+DESCRIPTION HERE
 
 ## Reviews
-- dennis
+**System Design Engineer: Dennis Arnold**
+
+[Screenshot and/or gif]
+DESCRIPTION HERE
 
 ## Tech Stack
 - PostgreSQL
