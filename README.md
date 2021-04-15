@@ -38,6 +38,15 @@ DESCRIPTION HERE
 ## Reviews
 **System Design Engineer: Dennis Arnold**
 
+### The Data
+For the purposes of consistency across all databases and not repeating values that were used in multiple places, PostgreSQL was chosen for this database. There were over 10 million individual records that needed to be inserted into multiple tables of the database and some data was incomplete. For the purposes of meeting the deadline, the records that were incomplete were individually deleted and re-inserted with appropriate values into the database after creation. 
+
+Using multiple tables with millions of records led to some queries being quite complex, including multiple joins and aggregate methods. This caused some queries to take much longer than was needed to meet our goal of 10k rps, but after some refactoring and proper indexing query times were reduced to less than 1ms even for complex queries.
+
+### Scaling
+After getting the database to query with appropriate speed, it was determined that the server was going to be the piece that was no longer able to keep up with requests. Since we wanted a single source of truth, we decoupled our databases from our server instances and began to horizontally scale server instances. Finding diminishing returns with each instance after 10 running servers, we implemented an Nginx load balancer for each database and set of server instances. This greatly increased performance, but after testing both our servers and our databases, we determined it was still the load-balancer holding us back. After testing with the AWS load balancer, we were able to reach the required 10k rps.
+
+
 ## Tech Stack
 - PostgreSQL
 - AWS (EC2, Load Balancer)
