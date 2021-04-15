@@ -17,6 +17,10 @@ The e-commerce client is broken down into three sections: product overview, prod
 ## Q&A
 **System Design Engineer: Emma Knor**
 
+Scaled service to handle up to 10,000 RPS.
+![Screen Shot 2021-03-27 at 12 50 56 PM](https://user-images.githubusercontent.com/73598239/114930646-7e354980-9df2-11eb-9d97-8c6e6b6cc642.png)
+
+
 [Screenshot and/or gif]
 DESCRIPTION HERE
 
