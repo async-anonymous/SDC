@@ -19,7 +19,7 @@ Key indexing and aggregate methods (something that puts PostgreSQL above other R
 The pursuit towards 10,000 requests per second hit a bottleneck once the system was deployed to AWS. Even with 10 EC2 instances and an NGINX load balancer, the system was stalling at 1750 clients per second.
 
 ![](/screenshots/1750test.png)
-![](/bottleneck.png)
+![](/screenshots/bottleneck.png)
 
 Process of elimination was the best path to a solution, starting with the database. pgBench found that PostgreSQL didn't flinch at 1750 requests and a CLI tool called HTOP showed that each server was only using roughly 15% of its CPU power during the same test. That left the load balancer.
 
