@@ -10,21 +10,14 @@ The e-commerce client is broken down into three sections: product overview, prod
 ## Product Overview
 **System Design Engineer: Jim Burch**
 
-[Screenshot and/or gif]
-
-
+### Serving Millions of Records
+This client needed to maintain transactional and inventory persistence
 
 ## Q&A
 **System Design Engineer: Emma Knor**
 
-[Screenshot and/or gif]
-DESCRIPTION HERE
-
 ## Reviews
 **System Design Engineer: Dennis Arnold**
-
-[Screenshot and/or gif]
-DESCRIPTION HERE
 
 ## Tech Stack
 - PostgreSQL
