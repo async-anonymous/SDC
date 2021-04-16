@@ -28,12 +28,17 @@ Testing the native AWS load balancer exposed the bottleneck in NGINX (or most li
 ## Q&A
 **System Design Engineer: Emma Knor**
 
-Scaled service to handle up to 10,000 RPS.
-![Screen Shot 2021-03-27 at 12 50 56 PM](https://user-images.githubusercontent.com/73598239/114930646-7e354980-9df2-11eb-9d97-8c6e6b6cc642.png)
+### Optimization
+In order to ensure transactional integrity and minimize duplicate records, the Q&A service is supported with a relational database. The initial implementations employed complex left outer joins to access and provide neccessary data for the client. However, query times proved to be far to long considering the client demands were for query times come out in under 5ms. All queries were reduced to under 1ms utilizing column indexing to provide the database with a reference point for rapid lookup as the query plan indicated filtering occupied the greatest amount of time. Additionaly aggregate tables optimized query times by providing a way for related data to be stored in one table while maintaining a single source of truth.
 
+### Stress Testing
+The Q&A service was stress tested with k6 tests. The predominant metrics were RPS, latency, and error rate. Tests were performed sequentially based on RPS, incrementing from 10, 100, 1,000, and then finally 10,000 RPS. In order to locate the bottleneck within this service pgBench tests proved the database to be capable of more than 10,000 RPS, which isolated the limitation to the servers and load balancers. From there an additional iteration was performed with an AWS load balancer which enabled the service to handle the goal of 10,000 RPS.
 
-[Screenshot and/or gif]
-DESCRIPTION HERE
+1,000 RPS
+ [Screen Shot 2021-03-27 at 12.50.56 PM.pdf](https://github.com/async-anonymous/SDC/files/6321864/Screen.Shot.2021-03-27.at.12.50.56.PM.pdf)
+
+10,000 RPS
+![Screen Shot 2021-04-15 at 6 31 34 PM](https://user-images.githubusercontent.com/73598239/114957460-50fe9080-9e1e-11eb-959d-35856d83c454.png)
 
 ## Reviews
 **System Design Engineer: Dennis Arnold**
