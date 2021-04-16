@@ -35,9 +35,11 @@ In order to ensure transactional integrity and minimize duplicate records, the Q
 The Q&A service was stress tested with k6 tests. The predominant metrics were RPS, latency, and error rate. Tests were performed sequentially based on RPS, incrementing from 10, 100, 1,000, and then finally 10,000 RPS. In order to locate the bottleneck within this service pgBench tests proved the database to be capable of more than 10,000 RPS, which isolated the limitation to the servers and load balancers. From there an additional iteration was performed with an AWS load balancer which enabled the service to handle the goal of 10,000 RPS.
 
 1,000 RPS
- [Screen Shot 2021-03-27 at 12.50.56 PM.pdf](https://github.com/async-anonymous/SDC/files/6321864/Screen.Shot.2021-03-27.at.12.50.56.PM.pdf)
+
+![Screen Shot 2021-04-15 at 6 31 34 PM](https://user-images.githubusercontent.com/73598239/114957569-85724c80-9e1e-11eb-87b4-9ce9140e961d.png)
 
 10,000 RPS
+
 ![Screen Shot 2021-04-15 at 6 31 34 PM](https://user-images.githubusercontent.com/73598239/114957460-50fe9080-9e1e-11eb-959d-35856d83c454.png)
 
 ## Reviews
